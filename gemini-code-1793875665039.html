@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Odd Pair | Shop</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <script>
+      tailwind.config = {
+          darkMode: 'class',
+          theme: {
+              extend: {
+                  colors: {
+                      oddGreen: {
+                          DEFAULT: '#93E268',
+                          hover: '#82d355',
+                          light: '#eefbe7',
+                          dark: '#58a031'
+                      },
+                      oddPink: {
+                          DEFAULT: '#ff80b5',
+                          hover: '#f668a4',
+                          light: '#fff0f6'
+                      },
+                      oddBlue: {
+                          DEFAULT: '#1e293b'
+                      }
+                  },
+                  fontFamily: {
+                      brand: ['Fredoka', 'sans-serif'],
+                      sans: ['Plus Jakarta Sans', 'sans-serif'],
+                  }
+              }
+          }
+      }
+  </script>
+  <style>
+    :root {
+      --oddGreen: #93E268;
+      --oddPink: #ff80b5;
+      --oddBlue: #1e293b;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #f7fceb;
+      color: var(--oddBlue);
+    }
+    .font-brand {
+      font-family: 'Fredoka', cursive;
+    }
+    .odd-border {
+      border: 3px solid #1e293b;
+    }
+    .odd-shadow {
+      box-shadow: 4px 4px 0px #1e293b;
+      transition: all 0.2s ease;
+    }
+    .odd-shadow:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0px #1e293b;
+    }
+    .odd-shadow-sm {
+      box-shadow: 3px 3px 0px #1e293b;
+    }
+    .bg-oddGreen { background-color: var(--oddGreen); }
+    .bg-oddPink { background-color: var(--oddPink); }
+    .bg-oddBlue { background-color: var(--oddBlue); }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col pb-24">
+
+  <!-- TOP BANNER -->
+  <div class="bg-oddPink text-slate-900 font-bold text-center py-2 px-4 odd-border border-b text-sm sm:text-base flex items-center justify-center gap-2">
+    <span>🦊 Welcome to The Odd Pair Shop! DM us on Instagram to order 🐮</span>
+  </div>
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-30 bg-oddGreen odd-border border-b py-4 px-4 sm:px-8 shadow-sm">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-oddPink rounded-xl odd-border flex items-center justify-center text-xl font-bold font-brand">OP</div>
+        <div>
+          <h1 class="font-brand text-2xl sm:text-3xl font-bold text-slate-900 leading-none">The Odd Pair</h1>
+          <p class="text-xs font-semibold text-slate-800 tracking-wide mt-1">GOODIES MADE WITH LOVE💕</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a id="igHeaderBtn" href="https://ig.me/m/the0ddpair" target="_blank" class="inline-flex items-center gap-2 bg-white text-slate-900 font-bold px-4 py-2 rounded-xl odd-border odd-shadow text-sm hover:bg-pink-100">
+          <svg class="w-5 h-5 text-pink-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          DM us to Order
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT VIEW -->
+  <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    
+    <!-- HERO SECTION -->
+    <section class="bg-white rounded-3xl p-6 sm:p-10 odd-border odd-shadow mb-10 text-center relative overflow-hidden">
+      <div class="inline-block bg-oddBlue text-white font-bold text-xs uppercase px-3 py-1 rounded-full odd-border mb-3">Official Catalog</div>
+      <h2 class="font-brand text-3xl sm:text-5xl font-extrabold text-slate-900 mb-3">Find Your Odd Pair!</h2>
+      <p class="text-slate-600 max-w-lg mx-auto text-sm sm:text-base">Browse our full collection below. Click any item to view details or open a direct Instagram DM with us!</p>
+    </section>
+
+    <!-- OWNER MODE NOTICE (Hidden by default) -->
+    <div id="adminTopPanel" class="hidden mb-6 bg-yellow-200 border-2 border-slate-900 rounded-2xl p-4 flex flex-wrap items-center justify-between gap-3 odd-shadow-sm">
+      <div class="flex items-center gap-2">
+        <span class="text-xl">🛠️</span>
+        <div>
+          <h2 class="font-bold text-slate-900 font-brand">Owner Mode Active</h2>
+          <p class="text-xs text-slate-700">You can add new products or edit/delete existing ones below. Changes sync automatically!</p>
+        </div>
+      </div>
+      <button onclick="openProductModal()" class="px-4 py-2.5 bg-oddGreen hover:bg-oddGreen-hover text-slate-900 font-bold font-brand text-sm rounded-2xl border-2 border-slate-900 odd-shadow-sm transition flex items-center gap-2">
+          <i class="fa-solid fa-plus"></i> Add Product
+      </button>
+    </div>
+
+    <!-- CONTROLS & FILTER BAR -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 pb-6 border-b-2 border-slate-200">
+        <div id="categoryTabs" class="flex flex-wrap items-center gap-2"></div>
+
+        <div class="flex items-center gap-3">
+            <div class="relative flex-1 sm:w-64">
+                <i class="fa-solid fa-search absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+                <input type="text" id="searchInput" placeholder="Search products..." 
+                       class="w-full pl-9 pr-4 py-2.5 bg-white border-2 border-slate-900 rounded-2xl text-xs font-bold focus:outline-none focus:ring-2 focus:ring-oddGreen transition">
+            </div>
+            
+            <button id="inStockOnlyBtn" onclick="toggleInStockFilter()" class="px-3.5 py-2.5 bg-white border-2 border-slate-900 rounded-2xl text-xs font-bold text-slate-800 hover:bg-slate-50 transition flex items-center gap-1.5 odd-shadow-sm">
+                <i id="inStockCheck" class="fa-regular fa-square text-slate-400"></i>
+                <span>In Stock Only</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- PRODUCTS GRID -->
+    <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
+        <!-- Loading Spinner -->
+        <div id="loadingSpinner" class="col-span-full py-16 text-center">
+            <i class="fa-solid fa-circle-notch fa-spin text-4xl text-oddGreen mb-3"></i>
+            <p class="text-xs font-bold text-slate-600 font-brand">Loading live catalog...</p>
+        </div>
+    </div>
+
+    <!-- EMPTY STATE -->
+    <div id="emptyState" class="hidden text-center py-16 bg-white rounded-3xl border-2 border-dashed border-slate-300 mt-4 p-6">
+        <div class="w-16 h-16 bg-oddGreen/30 text-slate-900 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl border-2 border-slate-900">
+            <i class="fa-solid fa-box-open"></i>
+        </div>
+        <h3 class="text-lg font-brand font-bold text-slate-800">No products found</h3>
+        <p class="text-slate-500 text-xs mt-1 max-w-xs mx-auto">Try adjusting your search query or switching categories.</p>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-white border-t-2 border-slate-900 mt-20 py-10">
+      <div class="max-w-7xl mx-auto px-4 text-center space-y-4">
+          <div class="flex justify-center items-center gap-2 text-slate-900 font-brand font-bold text-xl">
+              <i class="fa-brands fa-instagram text-oddPink"></i>
+              <span id="footerBrandName">The Odd Pair</span>
+          </div>
+          <p class="text-xs text-slate-500 max-w-md mx-auto">
+              Orders are processed through Instagram Direct Messaging. Connect with us on Instagram for inquiries or custom requests!
+          </p>
+          <div class="pt-4 text-xs text-slate-400 border-t border-slate-100 max-w-xs mx-auto flex items-center justify-between">
+              <span>&copy; <span id="currentYear"></span> The Odd Pair.</span>
+              <button onclick="openPasswordModal()" class="text-slate-500 hover:text-slate-900 font-bold underline">
+                  Owner Access
+              </button>
+          </div>
+      </div>
+  </footer>
+
+  <!-- OWNER PASSWORD REQUIRED MODAL -->
+  <div id="passwordModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+      <div class="bg-white rounded-3xl border-2 border-slate-900 odd-shadow max-w-sm w-full p-6 relative">
+          <button onclick="closePasswordModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-900 text-lg">
+              <i class="fa-solid fa-xmark"></i>
+          </button>
+          <div class="text-center space-y-3">
+              <div class="w-12 h-12 bg-oddPink/30 border-2 border-slate-900 rounded-2xl flex items-center justify-center mx-auto text-slate-900 text-xl">
+                  <i class="fa-solid fa-key"></i>
+              </div>
+              <h3 class="text-2xl font-brand font-bold text-slate-900">Password Required</h3>
+              <p class="text-xs text-slate-500 font-medium">Please enter the owner authorization key to access administrative features.</p>
+              
+              <form onsubmit="submitPasswordForm(event)" class="space-y-4 pt-2">
+                  <div>
+                      <input type="password" id="ownerPinInput" required placeholder="••••••••••" 
+                             class="w-full text-center tracking-widest text-lg px-4 py-3 bg-slate-50 border-2 border-slate-900 rounded-2xl font-bold focus:outline-none focus:ring-2 focus:ring-oddGreen">
+                  </div>
+                  <div id="pinErrorMsg" class="hidden text-xs font-bold text-rose-500">
+                      Incorrect authorization key.
+                  </div>
+                  <button type="submit" class="w-full py-3 bg-oddGreen border-2 border-slate-900 text-slate-900 font-brand font-bold text-sm rounded-2xl odd-shadow-sm hover:bg-oddGreen-hover transition">
+                      Authorize
+                  </button>
+              </form>
+          </div>
+      </div>
+  </div>
+
+  <!-- PRODUCT EDIT / ADD MODAL -->
+  <div id="productModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4 overflow-y-auto">
+      <div class="bg-white rounded-3xl border-2 border-slate-900 odd-shadow max-w-lg w-full p-6 sm:p-8 relative transform transition-all my-8">
+          <button onclick="closeProductModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-900 text-lg">
+              <i class="fa-solid fa-xmark"></i>
+          </button>
+
+          <h3 id="modalTitle" class="text-2xl font-brand font-bold text-slate-900 mb-6">Add New Product</h3>
+
+          <form id="productForm" onsubmit="saveProduct(event)" class="space-y-4">
+              <input type="hidden" id="productId">
+
+              <div>
+                  <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Product Title</label>
+                  <input type="text" id="prodTitle" required placeholder="e.g. Custom Keychain" 
+                         class="w-full px-4 py-2.5 bg-slate-50 border-2 border-slate-900 rounded-2xl text-xs font-bold focus:outline-none focus:ring-2 focus:ring-oddGreen">
+              </div>
+
+              <div class="grid grid-cols-2 gap-4">
+                  <div>
+                      <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Price ($)</label>
+                      <input type="number" step="0.01" id="prodPrice" required placeholder="15.00" 
+                             class="w-full px-4 py-2.5 bg-slate-50 border-2 border-slate-900 rounded-2xl text-xs font-bold focus:outline-none focus:ring-2 focus:ring-oddGreen">
+                  </div>
+                  <div>
+                      <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Category</label>
+                      <input type="text" id="prodCategory" required placeholder="Accessories, Merch..." 
+                             class="w-full px-4 py-2.5 bg-slate-50 border-2 border-slate-900 rounded-2xl text-xs font-bold focus:outline-none focus:ring-2 focus:ring-oddGreen">
+                  </div>
+              </div>
+
+              <div>
+                  <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Image URL (Optional)</label>
+                  <input type="url" id="prodImage" placeholder="Paste image link or leave blank" 
+                         class="w-full px-4 py-2.5 bg-slate-50 border-2 border-slate-900 rounded-2xl text-xs font-bold focus:outline-none focus:ring-2 focus:ring-oddGreen">
+              </div>
+
+              <div>
+                  <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Description</label>
+                  <textarea id="prodDesc" rows="3" placeholder="Brief details about material, size, or style..." 
+                            class="w-full px-4 py-2.5 bg-slate-50 border-2 border-slate-900 rounded-2xl text-xs font-bold focus:outline-none focus:ring-2 focus:ring-oddGreen"></textarea>
+              </div>
+
+              <div>
+                  <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Stock Status</label>
+                  <select id="prodStock" class="w-full px-4 py-2.5 bg-slate-50 border-2 border-slate-900 rounded-2xl text-xs font-bold focus:outline-none focus:ring-2 focus:ring-oddGreen">
+                      <option value="in_stock">In Stock</option>
+                      <option value="low_stock">Low Stock</option>
+                      <option value="out_of_stock">Out of Stock</option>
+                      <option value="coming_soon">Coming Soon</option>
+                  </select>
+              </div>
+
+              <div class="pt-4 flex items-center gap-3">
+                  <button type="button" onclick="closeProductModal()" class="w-1/2 py-3 bg-slate-100 border-2 border-slate-900 text-slate-800 font-brand font-bold text-sm rounded-2xl">
+                      Cancel
+                  </button>
+                  <button type="submit" id="saveProdBtn" class="w-1/2 py-3 bg-oddGreen border-2 border-slate-900 text-slate-900 font-brand font-bold text-sm rounded-2xl odd-shadow-sm">
+                      Save to Cloud
+                  </button>
+              </div>
+          </form>
+      </div>
+  </div>
+
+  <!-- PRODUCT DETAIL MODAL -->
+  <div id="detailModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+      <div class="bg-white rounded-3xl border-2 border-slate-900 odd-shadow max-w-md w-full p-6 relative">
+          <button onclick="closeDetailModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-900 text-lg">
+              <i class="fa-solid fa-xmark"></i>
+          </button>
+          <div id="detailContent"></div>
+      </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div id="toastContainer" class="fixed top-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <!-- FIREBASE DB & APP LOGIC -->
+  <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+      import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+      import { getFirestore, doc, setDoc, deleteDoc, onSnapshot, collection } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+      const OWNER_PIN = "2765";
+      const INSTAGRAM_URL = "https://ig.me/m/the0ddpair";
+      const APP_ID = typeof __app_id !== 'undefined' ? __app_id : 'the-odd-pair';
+
+      const INITIAL_PRODUCTS = [
+          {
+              id: "prod-1",
+              title: "Odd Pair Signature Sticker Pack",
+              price: 8.50,
+              category: "Merch",
+              image: "",
+              description: "High quality vinyl die-cut stickers featuring Fox & Bull mascots. Waterproof and vibrant!",
+              stockStatus: "in_stock"
+          },
+          {
+              id: "prod-2",
+              title: "Custom Character Tote Bag",
+              price: 22.00,
+              category: "Accessories",
+              image: "",
+              description: "Durable 100% heavy cotton canvas tote printed with original 'The Odd Pair' illustration.",
+              stockStatus: "in_stock"
+          },
+          {
+              id: "prod-3",
+              title: "Handmade Plushie Set",
+              price: 35.00,
+              category: "Crafts",
+              image: "",
+              description: "Limited edition handcrafted soft plush toy pair. Limited quantities available!",
+              stockStatus: "low_stock"
+          }
+      ];
+
+      let db = null;
+      let auth = null;
+      let products = [];
+      let isAdminLoggedIn = false;
+      let activeCategory = 'All';
+      let inStockOnlyFilter = false;
+
+      async function initApp() {
+          document.getElementById('currentYear').textContent = new Date().getFullYear();
+          document.getElementById('searchInput').addEventListener('input', renderProducts);
+
+          const cached = localStorage.getItem('odd_pair_products');
+          if (cached) {
+              try {
+                  products = JSON.parse(cached);
+                  renderCategories();
+                  renderProducts();
+              } catch(e) {}
+          }
+
+          try {
+              let firebaseConfig = {};
+              if (typeof __firebase_config !== 'undefined') {
+                  firebaseConfig = JSON.parse(__firebase_config);
+              } else {
+                  firebaseConfig = {
+                      apiKey: "AIzaSyDemoConfigForTestingOnly12345",
+                      authDomain: "demo-app.firebaseapp.com",
+                      projectId: "demo-app",
+                      storageBucket: "demo-app.appspot.com",
+                      messagingSenderId: "123456789",
+                      appId: "1:123456789:web:abcdef123456"
+                  };
+              }
+
+              const app = initializeApp(firebaseConfig);
+              auth = getAuth(app);
+              db = getFirestore(app);
+
+              if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                  await signInWithCustomToken(auth, __initial_auth_token);
+              } else {
+                  await signInAnonymously(auth);
+              }
+
+              listenToCloudProducts();
+
+          } catch (err) {
+              console.warn("Firestore connection fallback: using local memory mode.", err);
+              if (products.length === 0) products = INITIAL_PRODUCTS;
+              renderCategories();
+              renderProducts();
+          }
+      }
+
+      function listenToCloudProducts() {
+          const productsCol = collection(db, 'artifacts', APP_ID, 'public', 'data', 'products');
+          
+          onSnapshot(productsCol, (snapshot) => {
+              if (snapshot.empty && products.length === 0) {
+                  INITIAL_PRODUCTS.forEach(p => {
+                      const docRef = doc(db, 'artifacts', APP_ID, 'public', 'data', 'products', String(p.id));
+                      setDoc(docRef, p);
+                  });
+                  products = [...INITIAL_PRODUCTS];
+              } else if (!snapshot.empty) {
+                  products = snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+              }
+              localStorage.setItem('odd_pair_products', JSON.stringify(products));
+              renderCategories();
+              renderProducts();
+          }, (error) => {
+              console.error("Error fetching live data:", error);
+          });
+      }
+
+      window.saveProduct = async function(event) {
+          event.preventDefault();
+          const btn = document.getElementById('saveProdBtn');
+          btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Saving...`;
+          btn.disabled = true;
+
+          const id = String(document.getElementById('productId').value || 'prod-' + Date.now());
+          const newProd = {
+              id: id,
+              title: document.getElementById('prodTitle').value,
+              price: parseFloat(document.getElementById('prodPrice').value),
+              category: document.getElementById('prodCategory').value.trim(),
+              image: document.getElementById('prodImage').value.trim(),
+              description: document.getElementById('prodDesc').value.trim(),
+              stockStatus: document.getElementById('prodStock').value
+          };
+
+          const existingIdx = products.findIndex(p => String(p.id) === id);
+          if (existingIdx !== -1) {
+              products[existingIdx] = newProd;
+          } else {
+              products.unshift(newProd);
+          }
+          localStorage.setItem('odd_pair_products', JSON.stringify(products));
+          renderCategories();
+          renderProducts();
+          showToast("Saved product!");
+          closeProductModal();
+
+          if (db && auth?.currentUser) {
+              try {
+                  const docRef = doc(db, 'artifacts', APP_ID, 'public', 'data', 'products', id);
+                  await setDoc(docRef, newProd);
+              } catch (err) {
+                  console.warn("Cloud sync error:", err);
+              }
+          }
+
+          btn.innerHTML = "Save to Cloud";
+          btn.disabled = false;
+      };
+
+      window.deleteProduct = async function(prodId) {
+          const cleanId = String(prodId);
+          if (confirm("Delete this product permanently?")) {
+              products = products.filter(p => String(p.id) !== cleanId);
+              localStorage.setItem('odd_pair_products', JSON.stringify(products));
+              renderCategories();
+              renderProducts();
+              showToast("Product deleted!");
+
+              if (db && auth?.currentUser) {
+                  try {
+                      const docRef = doc(db, 'artifacts', APP_ID, 'public', 'data', 'products', cleanId);
+                      await deleteDoc(docRef);
+                  } catch (err) {
+                      console.warn("Cloud deletion error:", err);
+                  }
+              }
+          }
+      };
+
+      function renderCategories() {
+          const categories = ['All', ...new Set(products.map(p => p.category))];
+          const container = document.getElementById('categoryTabs');
+          
+          container.innerHTML = categories.map(cat => {
+              const isActive = activeCategory === cat;
+              return `
+                  <button onclick="setCategory('${cat}')" 
+                          class="px-4 py-2 rounded-2xl font-brand text-xs font-bold transition border-2 border-slate-900 ${
+                              isActive 
+                              ? 'bg-slate-900 text-oddGreen odd-shadow-sm' 
+                              : 'bg-white text-slate-800 hover:bg-oddGreen/20'
+                          }">
+                      ${cat}
+                  </button>
+              `;
+          }).join('');
+      }
+
+      window.setCategory = function(cat) {
+          activeCategory = cat;
+          renderCategories();
+          renderProducts();
+      };
+
+      window.toggleInStockFilter = function() {
+          inStockOnlyFilter = !inStockOnlyFilter;
+          const btn = document.getElementById('inStockOnlyBtn');
+          const icon = document.getElementById('inStockCheck');
+
+          if (inStockOnlyFilter) {
+              btn.classList.add('bg-oddGreen', 'text-slate-900');
+              icon.className = 'fa-solid fa-square-check text-slate-900';
+          } else {
+              btn.classList.remove('bg-oddGreen', 'text-slate-900');
+              icon.className = 'fa-regular fa-square text-slate-400';
+          }
+          renderProducts();
+      };
+
+      function getPlaceholderUrl(title) {
+          const encoded = encodeURIComponent(title || "The Odd Pair");
+          return `https://placehold.co/600x600/93E268/0f172a?text=${encoded}`;
+      }
+
+      function renderProducts() {
+          const grid = document.getElementById('productGrid');
+          const emptyState = document.getElementById('emptyState');
+          const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+
+          const filtered = products.filter(p => {
+              const matchesCat = activeCategory === 'All' || p.category === activeCategory;
+              const matchesSearch = p.title.toLowerCase().includes(searchTerm) || (p.description && p.description.toLowerCase().includes(searchTerm));
+              const matchesStock = !inStockOnlyFilter || p.stockStatus === 'in_stock' || p.stockStatus === 'low_stock';
+              return matchesCat && matchesSearch && matchesStock;
+          });
+
+          if (filtered.length === 0) {
+              grid.innerHTML = '';
+              emptyState.classList.remove('hidden');
+              return;
+          }
+
+          emptyState.classList.add('hidden');
+
+          grid.innerHTML = filtered.map(p => {
+              const imgSrc = p.image && p.image.trim() !== '' ? p.image : getPlaceholderUrl(p.title);
+              const stockBadge = getStockBadgeHtml(p.stockStatus);
+
+              const igMsg = encodeURIComponent(`Hi! I want to buy "${p.title}" ($${parseFloat(p.price).toFixed(2)}) from The Odd Pair shop!`);
+              const igLink = `${INSTAGRAM_URL}&text=${igMsg}`;
+
+              return `
+                  <div class="group bg-white rounded-3xl overflow-hidden border-2 border-slate-900 odd-shadow hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between relative">
+                      <div>
+                          <div class="relative aspect-square w-full overflow-hidden bg-oddGreen/10 border-b-2 border-slate-900 cursor-pointer" onclick="openDetailModal('${p.id}')">
+                              <img src="${imgSrc}" alt="${p.title}" 
+                                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                   onerror="this.src='${getPlaceholderUrl(p.title)}'">
+                              
+                              <div class="absolute top-3 left-3">
+                                  ${stockBadge}
+                              </div>
+
+                              <div class="absolute top-3 right-3">
+                                  <span class="px-3 py-1 rounded-full text-[10px] font-bold bg-white border-2 border-slate-900 text-slate-800 odd-shadow-sm font-brand">
+                                      ${p.category}
+                                  </span>
+                              </div>
+                          </div>
+
+                          <div class="p-5 space-y-2">
+                              <div class="flex items-start justify-between gap-2">
+                                  <h4 onclick="openDetailModal('${p.id}')" class="font-brand font-bold text-slate-900 text-lg leading-snug cursor-pointer hover:text-oddPink transition">
+                                      ${p.title}
+                                  </h4>
+                                  <span class="text-lg font-brand font-bold text-slate-900 bg-oddGreen/40 px-2.5 py-0.5 rounded-xl border border-slate-900">
+                                      $${parseFloat(p.price).toFixed(2)}
+                                  </span>
+                              </div>
+                              <p class="text-xs text-slate-600 line-clamp-2 font-medium">
+                                  ${p.description || "No description provided."}
+                              </p>
+                          </div>
+                      </div>
+
+                      <div class="p-5 pt-0">
+                          ${isAdminLoggedIn ? `
+                              <div class="grid grid-cols-2 gap-2 border-t-2 border-slate-100 pt-3">
+                                  <button onclick="openProductModal('${p.id}')" class="py-2 px-3 bg-slate-100 hover:bg-slate-200 text-slate-900 font-brand font-bold text-xs rounded-xl border-2 border-slate-900 transition flex items-center justify-center gap-1.5">
+                                      <i class="fa-solid fa-pen"></i> Edit
+                                  </button>
+                                  <button onclick="deleteProduct('${p.id}')" class="py-2 px-3 bg-rose-100 hover:bg-rose-200 text-rose-800 font-brand font-bold text-xs rounded-xl border-2 border-slate-900 transition flex items-center justify-center gap-1.5">
+                                      <i class="fa-solid fa-trash"></i> Delete
+                                  </button>
+                              </div>
+                          ` : `
+                              <a href="${igLink}" target="_blank" rel="noopener noreferrer" 
+                                 class="w-full py-2.5 px-4 bg-slate-900 hover:bg-oddPink hover:text-slate-900 text-white font-brand font-bold text-xs rounded-2xl border-2 border-slate-900 odd-shadow-sm transition-all duration-200 flex items-center justify-center gap-2 ${p.stockStatus === 'out_of_stock' ? 'opacity-50 pointer-events-none' : ''}">
+                                  <i class="fa-brands fa-instagram text-base"></i>
+                                  <span>${p.stockStatus === 'out_of_stock' ? 'Out of Stock' : 'Order on Instagram'}</span>
+                              </a>
+                          `}
+                      </div>
+                  </div>
+              `;
+          }).join('');
+      }
+
+      function getStockBadgeHtml(status) {
+          if (status === 'in_stock') {
+              return `<span class="px-3 py-1 rounded-full text-[10px] font-brand font-bold uppercase bg-emerald-400 border-2 border-slate-900 text-slate-900 odd-shadow-sm">In Stock</span>`;
+          } else if (status === 'low_stock') {
+              return `<span class="px-3 py-1 rounded-full text-[10px] font-brand font-bold uppercase bg-amber-300 border-2 border-slate-900 text-slate-900 odd-shadow-sm">Low Stock</span>`;
+          } else if (status === 'coming_soon') {
+              return `<span class="px-3 py-1 rounded-full text-[10px] font-brand font-bold uppercase bg-sky-400 border-2 border-slate-900 text-slate-900 odd-shadow-sm">Coming Soon</span>`;
+          } else {
+              return `<span class="px-3 py-1 rounded-full text-[10px] font-brand font-bold uppercase bg-rose-400 border-2 border-slate-900 text-slate-900 odd-shadow-sm">Sold Out</span>`;
+          }
+      }
+
+      window.openDetailModal = function(prodId) {
+          const p = products.find(item => item.id === prodId);
+          if (!p) return;
+
+          const imgSrc = p.image && p.image.trim() !== '' ? p.image : getPlaceholderUrl(p.title);
+          const igMsg = encodeURIComponent(`Hi! I am interested in ordering "${p.title}" ($${parseFloat(p.price).toFixed(2)}) from your shop!`);
+          const igLink = `${INSTAGRAM_URL}&text=${igMsg}`;
+
+          document.getElementById('detailContent').innerHTML = `
+              <div class="space-y-4">
+                  <div class="aspect-square w-full rounded-2xl border-2 border-slate-900 overflow-hidden bg-oddGreen/10">
+                      <img src="${imgSrc}" class="w-full h-full object-cover" onerror="this.src='${getPlaceholderUrl(p.title)}'">
+                  </div>
+                  <div>
+                      <div class="flex items-center justify-between">
+                          <span class="text-xs font-brand font-bold bg-oddGreen/30 px-3 py-1 rounded-full border border-slate-900">${p.category}</span>
+                          ${getStockBadgeHtml(p.stockStatus)}
+                      </div>
+                      <h3 class="text-2xl font-brand font-bold text-slate-900 mt-2">${p.title}</h3>
+                      <p class="text-2xl font-brand font-bold text-oddPink mt-1">$${parseFloat(p.price).toFixed(2)}</p>
+                      <p class="text-xs text-slate-600 font-medium mt-3 leading-relaxed">${p.description || "No full description provided."}</p>
+                  </div>
+                  <div class="pt-2">
+                      <a href="${igLink}" target="_blank" rel="noopener noreferrer" 
+                         class="w-full py-3 px-4 bg-slate-900 hover:bg-oddPink hover:text-slate-900 text-white font-brand font-bold text-sm rounded-2xl border-2 border-slate-900 odd-shadow-sm transition duration-200 flex items-center justify-center gap-2">
+                          <i class="fa-brands fa-instagram text-lg"></i>
+                          <span>DM us on Instagram to Order</span>
+                      </a>
+                  </div>
+              </div>
+          `;
+          document.getElementById('detailModal').classList.remove('hidden');
+      };
+
+      window.closeDetailModal = function() {
+          document.getElementById('detailModal').classList.add('hidden');
+      };
+
+      window.openPasswordModal = function() {
+          if (isAdminLoggedIn) {
+              isAdminLoggedIn = false;
+              updateAdminUI();
+              showToast("Logged out of Owner Mode");
+              return;
+          }
+          document.getElementById('ownerPinInput').value = '';
+          document.getElementById('pinErrorMsg').classList.add('hidden');
+          document.getElementById('passwordModal').classList.remove('hidden');
+          setTimeout(() => document.getElementById('ownerPinInput').focus(), 100);
+      };
+
+      window.closePasswordModal = function() {
+          document.getElementById('passwordModal').classList.add('hidden');
+      };
+
+      window.submitPasswordForm = function(event) {
+          event.preventDefault();
+          const entered = document.getElementById('ownerPinInput').value;
+          if (entered === OWNER_PIN) {
+              isAdminLoggedIn = true;
+              closePasswordModal();
+              updateAdminUI();
+              showToast("Owner Mode Authorized!");
+          } else {
+              document.getElementById('pinErrorMsg').classList.remove('hidden');
+          }
+      };
+
+      function updateAdminUI() {
+          const adminTopPanel = document.getElementById('adminTopPanel');
+          if (isAdminLoggedIn) {
+              adminTopPanel.classList.remove('hidden');
+          } else {
+              adminTopPanel.classList.add('hidden');
+          }
+          renderProducts();
+      }
+
+      window.openProductModal = function(prodId = null) {
+          const modal = document.getElementById('productModal');
+          const form = document.getElementById('productForm');
+          const title = document.getElementById('modalTitle');
+
+          form.reset();
+
+          if (prodId) {
+              const prod = products.find(p => p.id === prodId);
+              if (prod) {
+                  title.textContent = "Edit Product";
+                  document.getElementById('productId').value = prod.id;
+                  document.getElementById('prodTitle').value = prod.title;
+                  document.getElementById('prodPrice').value = prod.price;
+                  document.getElementById('prodCategory').value = prod.category;
+                  document.getElementById('prodImage').value = prod.image || '';
+                  document.getElementById('prodDesc').value = prod.description || '';
+                  document.getElementById('prodStock').value = prod.stockStatus || 'in_stock';
+              }
+          } else {
+              title.textContent = "Add New Product";
+              document.getElementById('productId').value = '';
+          }
+
+          modal.classList.remove('hidden');
+      };
+
+      window.closeProductModal = function() {
+          document.getElementById('productModal').classList.add('hidden');
+      };
+
+      function showToast(message) {
+          const container = document.getElementById('toastContainer');
+          const toast = document.createElement('div');
+          toast.className = "bg-slate-900 text-white font-brand text-xs font-bold px-4 py-3 rounded-2xl border-2 border-slate-900 odd-shadow flex items-center gap-2 transform transition-all duration-300 translate-y-2 opacity-0";
+          toast.innerHTML = `<i class="fa-solid fa-circle-check text-oddGreen"></i> ${message}`;
+          
+          container.appendChild(toast);
+          
+          setTimeout(() => toast.classList.remove('translate-y-2', 'opacity-0'), 10);
+          setTimeout(() => {
+              toast.classList.add('opacity-0', 'translate-y-2');
+              setTimeout(() => toast.remove(), 300);
+          }, 3000);
+      }
+
+      window.onload = initApp;
+  </script>
+</body>
+</html>
