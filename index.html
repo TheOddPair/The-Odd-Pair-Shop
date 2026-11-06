@@ -287,7 +287,8 @@
   <!-- FIREBASE DB & APP LOGIC -->
   <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-      import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+      import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+      const auth = getAuth(app);  
       import { getFirestore, doc, setDoc, deleteDoc, onSnapshot, collection } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
       const OWNER_PIN = "2765";
@@ -658,14 +659,22 @@
           document.getElementById('passwordModal').classList.add('hidden');
       };
 
-      window.submitPasswordForm = function(event) {
+      window.submitPasswordForm = async function(event) {
           event.preventDefault();
           const entered = document.getElementById('ownerPinInput').value;
           if (entered === OWNER_PIN) {
+            try {
+              //Authanticate with Firebase to unlock write permissions
+              await signInAnonymously(auth);
+              
               isAdminLoggedIn = true;
               closePasswordModal();
               updateAdminUI();
               showToast("Owner Mode Authorized!");
+            } catch (err) {
+              console.error("Auth error:", err);
+              showToast("Authentication failed! Owner has been notified!");
+            }
           } else {
               document.getElementById('pinErrorMsg').classList.remove('hidden');
           }
