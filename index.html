@@ -350,7 +350,7 @@
               if (typeof __firebase_config !== 'undefined') {
                   firebaseConfig = JSON.parse(__firebase_config);
               } else {
-                  firebaseConfig = {
+                  const firebaseConfig = {
                       apiKey: "AIzaSyAv6gzuy086AzUQNT7F-V0J4Mu6pml4NxY",
                       authDomain: "the-odd-pair.firebaseapp.com",
                       projectId: "the-odd-pair",
@@ -361,8 +361,8 @@
               }
 
               const app = initializeApp(firebaseConfig);
-              auth = getAuth(app);
-              db = getFirestore(app);
+              const auth = getAuth(app);
+              const db = getFirestore(app);
 
               if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
                   await signInWithCustomToken(auth, __initial_auth_token);
