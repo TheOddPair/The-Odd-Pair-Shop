@@ -578,7 +578,7 @@
                                   </button>
                               </div>
                           ` : `
-                              <a href="${igLink}" target="_blank" rel="noopener noreferrer" 
+                              <a href="https://ig.me/m/the0ddpair" target="_blank" rel="noopener noreferrer" 
                                  class="w-full py-2.5 px-4 bg-slate-900 hover:bg-oddPink hover:text-slate-900 text-white font-brand font-bold text-xs rounded-2xl border-2 border-slate-900 odd-shadow-sm transition-all duration-200 flex items-center justify-center gap-2 ${p.stockStatus === 'out_of_stock' ? 'opacity-50 pointer-events-none' : ''}">
                                   <i class="fa-brands fa-instagram text-base"></i>
                                   <span>${p.stockStatus === 'out_of_stock' ? 'Out of Stock' : 'Order on Instagram'}</span>
@@ -608,7 +608,7 @@
 
           const imgSrc = p.image && p.image.trim() !== '' ? p.image : getPlaceholderUrl(p.title);
           const igMsg = encodeURIComponent(`Hi! I am interested in ordering "${p.title}" ($${parseFloat(p.price).toFixed(2)}) from your shop!`);
-          const igLink = `${INSTAGRAM_URL}&text=${igMsg}`;
+          const igLink = "https://ig.me/m/the0ddpair";
 
           document.getElementById('detailContent').innerHTML = `
               <div class="space-y-4">
@@ -625,7 +625,7 @@
                       <p class="text-xs text-slate-600 font-medium mt-3 leading-relaxed">${p.description || "No full description provided."}</p>
                   </div>
                   <div class="pt-2">
-                      <a href="${igLink}" target="_blank" rel="noopener noreferrer" 
+                      <a href="https://ig.me/m/the0ddpair" target="_blank" rel="noopener noreferrer" 
                          class="w-full py-3 px-4 bg-slate-900 hover:bg-oddPink hover:text-slate-900 text-white font-brand font-bold text-sm rounded-2xl border-2 border-slate-900 odd-shadow-sm transition duration-200 flex items-center justify-center gap-2">
                           <i class="fa-brands fa-instagram text-lg"></i>
                           <span>DM us on Instagram to Order</span>
