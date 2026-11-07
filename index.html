@@ -338,7 +338,9 @@
                   products = JSON.parse(cached);
                   renderCategories();
                   renderProducts();
-              } catch(e) {}
+              } catch(e) {
+                console.warn("Failed to load cached products:", e);
+              }
           }
 
               let firebaseConfig = {};
