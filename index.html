@@ -323,8 +323,6 @@
           }
       ];
 
-      let db = null;
-      let auth = null;
       let products = [];
       let isAdminLoggedIn = false;
       let activeCategory = 'All';
@@ -361,12 +359,12 @@
               const app = initializeApp(firebaseConfig);
               const auth = getAuth(app);
               const db = getFirestore(app);
-
-              if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                  await signInWithCustomToken(auth, __initial_auth_token);
-              } else {
-                  await signInAnonymously(auth);
-              }
+              async function initializeAppSession() {
+                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                    await signInWithCustomToken(auth, __initial_auth_token);
+                } else {
+                    await signInAnonymously(auth);
+                }
 
               listenToCloudProducts();
 
