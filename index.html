@@ -360,21 +360,22 @@
               const auth = getAuth(app);
               const db = getFirestore(app);
               async function initializeAppSession() {
-                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                    await signInWithCustomToken(auth, __initial_auth_token);
-                } else {
-                    await signInAnonymously(auth);
-                }
+                try {
+                  if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                      await signInWithCustomToken(auth, __initial_auth_token);
+                  } else {
+                      await signInAnonymously(auth);
+                    }
 
-              listenToCloudProducts();
+                  listenToCloudProducts();
 
-          } catch (err) {
+            } catch (err) {
               console.warn("Firestore connection fallback: using local memory mode.", err);
               if (products.length === 0) products = INITIAL_PRODUCTS;
               renderCategories();
               renderProducts();
-          }
-      }
+            }
+        }
 
       function listenToCloudProducts() {
           const productsCol = collection(db, 'artifacts', APP_ID, 'public', 'data', 'products');
