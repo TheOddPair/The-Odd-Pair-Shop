@@ -356,29 +356,28 @@
                       appId: "1:350125239793:web:9692056bc6876abea96850"
                   };
               }
-
-              const app = initializeApp(firebaseConfig);
-              const auth = getAuth(app);
-              const db = getFirestore(app);
-        
-              async function initializeAppSession() {
-                try {
-                  if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                      await signInWithCustomToken(auth, __initial_auth_token);
-                  } else {
-                      await signInAnonymously(auth);
-                    }
-
-                  listenToCloudProducts();
-
-                } catch (err) {
-              console.warn("Firestore connection fallback: using local memory mode.", err);
-              if (products.length === 0) products = INITIAL_PRODUCTS;
-              renderCategories();
-              renderProducts();
-                }
-              }
       }
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+
+        async function initializeAppSession() {
+            try {
+              if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                 await signInWithCustomToken(auth, __initial_auth_token);
+              } else {
+                 await signInAnonymously(auth);
+              }
+
+              listenToCloudProducts();
+
+              } catch (err) {
+                console.warn("Firestore connection fallback: using local memory mode.", err);
+                if (products.length === 0) products = INITIAL_PRODUCTS;
+                renderCategories();
+                renderProducts();
+              }
+          }
 
       function listenToCloudProducts() {
           const productsCol = collection(db, 'artifacts', APP_ID, 'public', 'data', 'products');
@@ -708,13 +707,14 @@
                   document.getElementById('prodImage').value = prod.image || '';
                   document.getElementById('prodDesc').value = prod.description || '';
                   document.getElementById('prodStock').value = prod.stockStatus || 'in_stock';
-              } else {
+              }
+            } else {
               title.textContent = "Add New Product";
               document.getElementById('productId').value = '';
-              }
+            }
 
           modal.classList.remove('hidden');
-          };
+      };
 
       window.closeProductModal = function() {
           document.getElementById('productModal').classList.add('hidden');
