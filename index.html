@@ -328,6 +328,7 @@
       let activeCategory = 'All';
       let inStockOnlyFilter = false;
       let firebaseConfig = {};
+      console.log(firebaseConfig);
       const app = initializeApp(firebaseConfig);
       const auth = getAuth(app);
       const db = getFirestore(app);
