@@ -369,13 +369,13 @@
 
                   listenToCloudProducts();
 
-            } catch (err) {
+                } catch (err) {
               console.warn("Firestore connection fallback: using local memory mode.", err);
               if (products.length === 0) products = INITIAL_PRODUCTS;
               renderCategories();
               renderProducts();
-            }
-        }
+                }
+              }
 
       function listenToCloudProducts() {
           const productsCol = collection(db, 'artifacts', APP_ID, 'public', 'data', 'products');
