@@ -327,6 +327,9 @@
       let isAdminLoggedIn = false;
       let activeCategory = 'All';
       let inStockOnlyFilter = false;
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+      const db = getFirestore(app);
 
       async function initApp() {
           document.getElementById('currentYear').textContent = new Date().getFullYear();
@@ -357,9 +360,6 @@
                   };
               }
       }
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-  const db = getFirestore(app);
 
         async function initializeAppSession() {
             try {
