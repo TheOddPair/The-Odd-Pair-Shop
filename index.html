@@ -361,7 +361,7 @@
 
   <!-- PRODUCT DETAIL MODAL -->
   <div id="detailModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-      <div class="bg-white rounded-3xl border-2 border-slate-900 odd-shadow max-w-md w-full p-6 relative">
+      <div class="bg-white rounded-3xl border-2 border-slate-900 odd-shadow max-w-md w-full max-h-[85vh] flex flex-col p-6 relative">
           <button onclick="closeDetailModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-900 text-lg">
               <i class="fa-solid fa-xmark"></i>
           </button>
@@ -489,16 +489,19 @@
       }
 
       function addToCart(productId, quantity = 1) {
-          const product = products.find(p => String(p.id) === String(productId));
-          if (!product) return;
-
-          const existingIndex = cart.findIndex(item => String(item.id) === String(productId));
+          const cleanId = String(productId);
+          const product = products.find(p => String(p.id) === cleanId);
+          if (!product) {
+              console.error("Product not found for ID:", cleanId);
+              return;
+          }
+          const existingIndex = cart.findIndex(item => String(item.id) === cleanId);
           if (existingIndex > -1) {
               cart[existingIndex].quantity += quantity;
           } else {
               cart.push({
                   id: product.id,
-                  price: product.price,
+                  price: parseFloat(product.price),
                   image: product.image || getPlaceholderUrl(product.title),
                   quantity: quantity
               });
