@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Odd Pair | Shop</title>
+  <link rel="icon" type="image/png" href="favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+      tailwind.config = {
+          darkMode: 'class',
+          theme: {
+              extend: {
+                  colors: {
+                      oddGreen: {
+                          DEFAULT: '#93E268',
+                          hover: '#82d355',
+                          light: '#eefbe7',
+                          dark: '#58a031'
+                      },
+                      oddPink: {
+                          DEFAULT: '#ff80b5',
+                          hover: '#f668a4',
+                          light: '#fff0f6'
+                      },
+                      oddBlue: {
+                          DEFAULT: '#1e293b'
+                      }
+                  },
+                  fontFamily: {
+                      brand: ['Fredoka', 'sans-serif'],
+                      sans: ['Plus Jakarta Sans', 'sans-serif'],
+                  }
+              }
+          }
+      }
+  </script>
+  <style>
+    :root {
+      --oddGreen: #93E268;
+      --oddPink: #ff80b5;
+      --oddBlue: #1e293b;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #f7fceb;
+      color: var(--oddBlue);
+    }
+    .font-brand {
+      font-family: 'Fredoka', cursive;
+    }
+    .odd-border {
+      border: 3px solid #1e293b;
+    }
+    .odd-shadow {
+      box-shadow: 4px 4px 0px #1e293b;
+      transition: all 0.2s ease;
+    }
+    .odd-shadow:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0px #1e293b;
+    }
+    .odd-shadow-sm {
+      box-shadow: 3px 3px 0px #1e293b;
+    }
+    .bg-oddGreen { background-color: var(--oddGreen); }
+    .bg-oddPink { background-color: var(--oddPink); }
+    .bg-oddBlue { background-color: var(--oddBlue); }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- TOP BANNER -->
+  <div class="bg-oddPink text-slate-900 font-bold text-center py-2 px-4 odd-border border-b text-sm sm:text-base flex items-center justify-center gap-2">
+    <span>🦊 Welcome to The Odd Pair Shop! DM us on Instagram to order 🐮</span>
+  </div>
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-30 bg-oddGreen odd-border border-b py-4 px-4 sm:px-8 shadow-sm">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
+       <!-- LOGO AREA -->
+      <div class="flex items-center gap-3">
+        <img src="favicon.ico" alt="The Odd Pair Logo" class="w-16 h-16 rounded-full border border-white object-cover" onerror="this.src='https://placehold.co/100x100/93E268/1e293b?text=OP'">
+        <div>
+          <h1 class="font-brand text-2xl sm:text-3xl font-bold text-slate-900 leading-none">The Odd Pair</h1>
+          <p class="text-xs font-semibold text-slate-800 tracking-wide mt-1">A LITTLE ODD, A LOT TO LOVE💕</p>
+        </div>
+      </div>
+      <!-- Actions: Settings & Cart -->
+      <div class="flex items-center gap-2 sm:gap-2.5">
+        <!-- Cart Button -->
+        <button onclick="toggleCartDrawer(true)"
+                class="relative flex items-center gap-2 bg-white hover:brightness-105 text-slate-900 px-4 sm:px-5 py-2.5 rounded-full font-bold border-2 border-slate-900 odd-shadow-sm transition-transform active:scale-95">
+              <i data-lucide="shopping-bag" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+              <span class="hidden sm:inline text-sm">Cart</span>
+              <span id="cartCountBadge" class="bg-oddPink text-slate-900 text-xs font-black px-2.5 py-0.5 rounded-full border border-slate-900">
+                  0
+              </span>
+        </button>
+
+        <!-- IG BUTTON -->
+        <a id="igHeaderBtn" href="https://ig.me/m/the0ddpair" target="_blank" class="inline-flex items-center gap-2 font-bold px-4 py-2.5 bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 text-white rounded-2xl odd-shadow text-xs sm:text-sm hover:opacity-90 border-2 border-slate-900">
+          <i class="fa-brands fa-instagram text-base"></i>
+          <span>DM us to Order</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT VIEW -->
+  <main class="flex flex-col flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    
+    <!-- HERO SECTION -->
+    <section class="bg-oddGreen rounded-3xl p-6 sm:p-10 odd-border odd-shadow mb-10 text-center relative overflow-hidden">
+      <div class="inline-block bg-oddBlue text-white font-bold text-xs uppercase px-3 py-1 rounded-full border-2 border-slate-900 mb-3">Official Catalog</div>
+      <h2 class="font-brand text-3xl sm:text-5xl font-extrabold text-slate-900 mb-3">Find Your Odd Pair!</h2>
+      <p class="text-slate-700 max-w-lg mx-auto text-sm sm:text-base font-medium">Browse our full collection below. Click any item to view details or order directly through Instagram!</p>
+    </section>
+
+    <!-- OWNER MODE NOTICE (Hidden by default) -->
+    <div id="adminTopPanel" class="hidden mb-6 bg-yellow-200 border-2 border-slate-900 rounded-2xl p-4 flex flex-wrap items-center justify-between gap-3 odd-shadow-sm">
+      <div class="flex items-center gap-2">
+        <span class="text-xl">🛠️</span>
+        <div>
+          <h2 class="font-bold text-slate-900 font-brand">Owner Mode Active</h2>
+          <p class="text-xs text-slate-700">You can add new products or edit/delete existing ones below. Changes sync automatically!</p>
+        </div>
+      </div>
+      <button onclick="openProductModal()" class="px-4 py-2.5 bg-oddGreen hover:bg-oddGreen-hover text-slate-900 font-bold font-brand text-sm rounded-2xl border-2 border-slate-900 odd-shadow-sm transition flex items-center gap-2">
+          <i class="fa-solid fa-plus"></i> Add Product
+      </button>
+    </div>
+
+    <!-- CONTROLS & FILTER BAR -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 pb-6 border-b-2 border-slate-200">
+        <div id="categoryTabs" class="flex flex-wrap items-center gap-2"></div>
+
+        <div class="flex items-center gap-3">
+            <div class="relative flex-1 sm:w-64">
+                <i class="fa-solid fa-search absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+                <input type="text" id="searchInput" placeholder="Search products..." 
+                       class="w-full pl-9 pr-4 py-2.5 bg-white border-2 border-slate-900 rounded-2xl text-xs font-bold focus:outline-none focus:ring-2 focus:ring-oddGreen transition">
+            </div>
+            
+            <button id="inStockOnlyBtn" onclick="toggleInStockFilter()" class="px-3.5 py-2.5 bg-white border-2 border-slate-900 rounded-2xl text-xs font-bold text-slate-800 hover:bg-slate-50 transition flex items-center gap-1.5 odd-shadow-sm">
+                <i id="inStockCheck" class="fa-regular fa-square text-slate-400"></i>
+                <span>In Stock Only</span>
+            </button>
+        </div>
+    </div>
