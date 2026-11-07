@@ -403,21 +403,25 @@
       function listenToCloudProducts() {
           const productsCol = collection(db, 'artifacts', APP_ID, 'public', 'data', 'products');
           console.log("Listening to Firestore path:", productsCol.path);
+        
           onSnapshot(productsCol, (snapshot) => {
             console.log("Snapshot received! Docs count:", snapshot.size);
-              if (snapshot.empty && products.length === 0) {
-                  INITIAL_PRODUCTS.forEach(p => {
-                      const docRef = doc(db, 'artifacts', APP_ID, 'public', 'data', 'products', String(p.id));
-                      setDoc(docRef, p);
-                  });
-                  products = [...INITIAL_PRODUCTS];
-              } else if (!snapshot.empty) {
-                  products = snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }));
-              }
-              localStorage.setItem('odd_pair_products', JSON.stringify(products));
-              renderCategories();
-              renderProducts();
-          }, (error) => {
+            
+            if (snapshot.empty && products.length === 0) {
+              // Seed initial products to cloud if Firestore is empty
+                for (const p of INITIAL_PRODUCTS) {
+                    const docRef = doc(db, 'artifacts', APP_ID, 'public', 'data', 'products', String(p.id));
+                    await setDoc(docRef, p);
+                });
+                products = [...INITIAL_PRODUCTS]; 
+            } else if (!snapshot.empty) {
+                products = snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+            }
+            
+            localStorage.setItem('odd_pair_products', JSON.stringify(products));
+            renderCategories();
+            renderProducts();
+        }, (error) => {
               console.error("Error fetching live data:", error);
           });
       }
