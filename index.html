@@ -358,7 +358,14 @@
                   };
               }
 
-              const app = initializeApp(firebaseConfig);
+              const app = initializeApp({
+                apiKey: "YOUR_ACTUAL_API_KEY",
+                authDomain: "the-odd-pair.firebaseapp.com",
+                projectId: "the-odd-pair",
+                storageBucket: "the-odd-pair.firebasestorage.app",
+                messagingSenderId: "35012523979",
+                appId: "1:35012523979:web:9692056bc6876abea96850"
+              });
               const auth = getAuth(app);
               const db = getFirestore(app);
 
