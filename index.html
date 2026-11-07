@@ -327,6 +327,7 @@
       let isAdminLoggedIn = false;
       let activeCategory = 'All';
       let inStockOnlyFilter = false;
+      let firebaseConfig = {};
       const app = initializeApp(firebaseConfig);
       const auth = getAuth(app);
       const db = getFirestore(app);
@@ -346,7 +347,7 @@
               }
           }
 
-              let firebaseConfig = {};
+              
               if (typeof __firebase_config !== 'undefined') {
                   firebaseConfig = JSON.parse(__firebase_config);
               } else {
