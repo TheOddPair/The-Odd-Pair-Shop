@@ -376,7 +376,11 @@
                     appId: "1:350125239793:web:9692056bc6876abea96850"
                   };
               }
+        // Kick off cloud authentication and live syncing here:
+        await initializeAppSession();
       }
+    // Kick off cloud authentication and live syncing here:
+    initApp();
 
         async function initializeAppSession() {
             try {
@@ -398,8 +402,9 @@
 
       function listenToCloudProducts() {
           const productsCol = collection(db, 'artifacts', APP_ID, 'public', 'data', 'products');
-          
+          console.log("Listening to Firestore path:", productsCol.path);
           onSnapshot(productsCol, (snapshot) => {
+            console.log("Snapshot received! Docs count:", snapshot.size);
               if (snapshot.empty && products.length === 0) {
                   INITIAL_PRODUCTS.forEach(p => {
                       const docRef = doc(db, 'artifacts', APP_ID, 'public', 'data', 'products', String(p.id));
