@@ -705,14 +705,13 @@
                   document.getElementById('prodImage').value = prod.image || '';
                   document.getElementById('prodDesc').value = prod.description || '';
                   document.getElementById('prodStock').value = prod.stockStatus || 'in_stock';
-              }
-          } else {
+              } else {
               title.textContent = "Add New Product";
               document.getElementById('productId').value = '';
-          }
+      }
 
           modal.classList.remove('hidden');
-      };
+          };
 
       window.closeProductModal = function() {
           document.getElementById('productModal').classList.add('hidden');
