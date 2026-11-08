@@ -920,7 +920,7 @@
                                   </button>
                               </div>
                           ` : `
-                              <button onclick="addToCart('${p.id}')" class="w-full py-2.5 px-4 bg-oddGreen hover:brightness-105 text-slate-900 font-brand font-bold text-xs rounded-2xl border-2 border-slate-900 odd-shadow-sm transition-all flex items-center justify-center gap-2 ${p.stockStatus === 'out_of_stock' ? 'opacity-50 pointer-events-none' : ''}">
+                              <button onclick="addToCart('${p.id}')" class="w-full py-2.5 px-4 bg-oddPink hover:brightness-105 text-slate-900 font-brand font-bold text-xs rounded-2xl border-2 border-slate-900 odd-shadow-sm transition-all flex items-center justify-center gap-2 ${p.stockStatus === 'out_of_stock' ? 'opacity-50 pointer-events-none' : ''}">
                                   <i data-lucide="shopping-bag" class="w-4 h-4"></i>
                                   <span>${p.stockStatus === 'out_of_stock' ? 'Out of Stock' : 'Add to Cart'}</span>
                               </button>
